@@ -47,8 +47,14 @@ function getStringFromWasm0(ptr, len) {
 }
 /**
 */
-export function main() {
-    wasm.main();
+export function root_main() {
+    wasm.root_main();
+}
+
+/**
+*/
+export function root_post_main() {
+    wasm.root_post_main();
 }
 
 /**
@@ -188,7 +194,7 @@ async function init(input) {
 
     wasm = instance.exports;
     init.__wbindgen_wasm_module = module;
-    wasm.__wbindgen_start();
+
     return wasm;
 }
 

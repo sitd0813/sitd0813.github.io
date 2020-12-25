@@ -4,7 +4,9 @@
 
 import { Some, None, Ok, Err, match } from "/static/script/rust.mjs";
 
-import { Page, PostManager } from "./post.mjs"
+import { Page, PostManager } from "./post.mjs";
+
+import wasm_init from "/static/wasm/wasm.js";
 
 const generate_title = async (page) => {
 	let title_html = `<h1>${page.title}</h1>`
@@ -36,11 +38,9 @@ const render_page = async (title, table_of_contents, content, page) => {
 	table_of_contents.innerHTML = `<h2>Table of Contents</h2>${toc_html}`
 }
 
-import wasm_init from "/static/wasm/wasm.js"
-
 const main = async () => {
 	let wasm = await wasm_init();
-	console.log(wasm.add(3, 50));
+	wasm.root_post_main();
 
 	let title = document.querySelector("#title");
 	let table_of_contents = document.querySelector("#table_of_contents");
