@@ -1,0 +1,55 @@
+@import url("/static/style/main.css");
+
+:root {
+	--width: 80%;
+}
+
+body {
+	background: var(--background_color);
+	color: var(--text_color);
+	display: block;
+}
+
+button {
+	background: var(--background_color);
+	border: none;
+	cursor: pointer;
+	color: var(--main_color);
+	font-size: 3rem;
+	width: (100% - var(--width)) / 2;
+	position: fixed;
+	top: 50%;
+} button#next {
+	right: 0%;
+} button#next::after {
+	content: "»";
+} button#prev {
+	left: 0%;
+} button#prev::after {
+	content: "«";
+}
+
+.hline::after {
+	width: var(--width);
+}
+
+#title {
+	font-size: 1.25rem;
+	display: block;
+	text-align: center;
+	margin: auto;
+	width: var(--width);
+}
+
+#table_of_contents {
+	display: block;
+	margin: auto;
+	width: var(--width);
+} #table_of_contents * {
+	margin: 1rem auto;
+}
+
+#content {
+	margin: auto;
+	width: var(--width);
+}

@@ -1,0 +1,18 @@
+[env]
+BUILD_DIR = "./static/wasm/"
+
+[tasks.build]
+clear = true
+run_task = { name = ["build_wasm"], fork = true, cleanup_task = "cleanup" }
+
+[tasks.build_wasm]
+command = "wasm-pack"
+args = ["build", "--no-typescript", "--out-dir", "${BUILD_DIR}", "--target", "web"]
+
+[tasks.cleanup]
+script_runner = "@duckscript"
+script = '''
+	rm ${BUILD_DIR}.gitignore
+	rm ${BUILD_DIR}package.json
+	rm ${BUILD_DIR}README.md
+'''

@@ -1,0 +1,34 @@
+@import url("./define.css");
+
+body {
+	background: var(--background_color);
+	color: var(--text_color);
+}
+
+a {
+	color: var(--main_color);
+	text-decoration: none;
+} a:focus, a:hover {
+	color: var(--highlight_color);
+	font-weight: bold;
+}
+
+button {
+	background: transparent;
+	border: none;
+	color: var(--main_color);
+	cursor: pointer;
+} button:focus, button:hover {
+	color: var(--highlight_color);
+}
+
+.hline {
+	display: flex;
+	align-items: center;
+} .hline::after {
+	content: "";
+	display: block;
+	margin: 1rem auto;
+	background: var(--text_color);
+	height: 0.1rem;
+}
